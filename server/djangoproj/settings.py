@@ -7,8 +7,8 @@ key = 'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0'
 SECRET_KEY = key
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','dchhatbar-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'] # noqa: E501
-CSRF_TRUSTED_ORIGINS = ['https://dchhatbar-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'] # noqa: E501
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','dchhatbar-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']  # noqa: E501
+CSRF_TRUSTED_ORIGINS = ['https://dchhatbar-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']  # noqa: E501
 
 INSTALLED_APPS = [
     'djangoapp.apps.DjangoappConfig',
@@ -61,10 +61,10 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME':'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, # noqa: E501
-    {'NAME':'django.contrib.auth.password_validation.MinimumLengthValidator'}, # noqa: E501
-    {'NAME':'django.contrib.auth.password_validation.CommonPasswordValidator'}, # noqa: E501
-    {'NAME':'django.contrib.auth.password_validation.NumericPasswordValidator'}, # noqa: E501
+    {'NAME':'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},  # noqa: E501
+    {'NAME':'django.contrib.auth.password_validation.MinimumLengthValidator'},  # noqa: E501
+    {'NAME':'django.contrib.auth.password_validation.CommonPasswordValidator'},  # noqa: E501
+    {'NAME':'django.contrib.auth.password_validation.NumericPasswordValidator'},  # noqa: E501
 ]
 
 LANGUAGE_CODE = 'en-us'

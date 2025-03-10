@@ -42,7 +42,7 @@ def registration(request):
         if User.objects.filter(username=username).exists():
             return JsonResponse({"error": "Already Registered"}, status=400)
 
-        user = User.objects.create_user(username=username, password=password, first_name=first_name,last_name=last_name, email=email) # noqa: E501
+        user = User.objects.create_user(username=username, password=password, first_name=first_name,last_name=last_name, email=email)  # noqa: E501
         login(request, user)
         return JsonResponse({"userName": username, "status":
         "Registered and Authenticated"})
@@ -84,7 +84,7 @@ def add_review(request):
             return JsonResponse({"status": 200})
         except Exception as e:
             logger.error(f"Error posting review: {e}")
-            return JsonResponse({"status": 401,"message": "Error in posting review"}) # noqa: E501
+            return JsonResponse({"status": 401,"message": "Error in posting review"})  # noqa: E501
     return JsonResponse({"status": 403, "message": "Unauthorized"})
 
 
