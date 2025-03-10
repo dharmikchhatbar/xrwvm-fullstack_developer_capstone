@@ -1,6 +1,5 @@
 from .restapis import get_request, analyze_review_sentiments, post_review
 from .models import CarMake, CarModel
-from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
@@ -43,9 +42,11 @@ def registration(request):
         if User.objects.filter(username=username).exists():
             return JsonResponse({"error": "Already Registered"}, status=400)
 
-        user = User.objects.create_user(username=username, password=password, first_name=first_name, last_name=last_name, email=email)
+        user = User.objects.create_user(username=username, password=password, first_name=first_name, 
+        last_name=last_name, email=email)
         login(request, user)
-        return JsonResponse({"userName": username, "status": "Registered and Authenticated"})
+        return JsonResponse({"userName": username, "status": 
+        "Registered and Authenticated"})
 
     return JsonResponse({"error": "Invalid request"}, status=400)
 
@@ -84,7 +85,8 @@ def add_review(request):
             return JsonResponse({"status": 200})
         except Exception as e:
             logger.error(f"Error posting review: {e}")
-            return JsonResponse({"status": 401, "message": "Error in posting review"})
+            return JsonResponse({"status": 401, 
+            "message": "Error in posting review"})
     return JsonResponse({"status": 403, "message": "Unauthorized"})
 
 
