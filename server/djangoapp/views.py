@@ -42,10 +42,9 @@ def registration(request):
         if User.objects.filter(username=username).exists():
             return JsonResponse({"error": "Already Registered"}, status=400)
 
-        user = User.objects.create_user(username=username, password=password, first_name=first_name,last_name=last_name, email=email)  # noqa: E501
+        user = User.objects.create_user(username=username, password=password, first_name=first_name, last_name=last_name, email=email)  # noqa: E501
         login(request, user)
-        return JsonResponse({"userName": username, "status":
-        "Registered and Authenticated"})
+        return JsonResponse({"userName": username, "status": "Registered and Authenticated"})  # noqa: E501
 
     return JsonResponse({"error": "Invalid request"}, status=400)
 
@@ -80,11 +79,11 @@ def add_review(request):
     if not request.user.is_anonymous:
         data = json.loads(request.body)
         try:
-            response = post_review(data)
+            JsonResponse = post_review(data)
             return JsonResponse({"status": 200})
         except Exception as e:
             logger.error(f"Error posting review: {e}")
-            return JsonResponse({"status": 401,"message": "Error in posting review"})  # noqa: E501
+            return JsonResponse({"status": 401, "message": "Error in posting review"})  # noqa: E501
     return JsonResponse({"status": 403, "message": "Unauthorized"})
 
 
